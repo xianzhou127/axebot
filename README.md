@@ -48,7 +48,7 @@ After installing ROS2 and creating the workspace, clone this repository in your 
 
 ```
 cd ~/ros_ws/src
-git clone https://github.com/mateusmenezes95/axebot.git
+git clone https://github.com/xianzhou127/axebot.git
 ```
 
 Install the binary dependencies by running the following command in the root of your workspace:
