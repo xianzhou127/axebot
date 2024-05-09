@@ -37,6 +37,8 @@ install(DIRECTORY
   config
   urdf
   meshes
+  world
+  sensor
   DESTINATION share/${PROJECT_NAME}/
 )
 

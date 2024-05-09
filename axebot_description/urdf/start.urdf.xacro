@@ -1,0 +1,22 @@
+<!-- compant -->
+<robot name="my_car_camera" xmlns:xacro="http://wiki.ros.org/xacro">    
+    <!-- 用arg接收launch里mappings的参数 -->
+    <xacro:arg name="robot_name_rc" default="my_robot"/>
+
+    <!-- 定义全局属性 -->
+    <!-- 多智能体必须为每一个智能体设置namespace -->
+    <xacro:property name="robot_name" value="$(arg robot_name_rc)"/> <!-- 注意这里是小括号 -->
+    <xacro:property name="camera_name" value="${robot_name}_camera"/>
+    <xacro:property name="laser_name" value="${robot_name}_laser"/>
+
+    <!-- robot -->
+    <xacro:include filename="$(find axebot_description)/urdf/axebot.urdf.xacro" />
+
+    <!-- sensor -->
+    <xacro:include filename="$(find axebot_description)/sensor/head.urdf.xacro" />
+    <xacro:include filename="$(find axebot_description)/sensor/laser.urdf.xacro" />
+    <xacro:include filename="$(find axebot_description)/sensor/laser_gz_plugin.urdf.xacro" />
+    <!-- <xacro:include filename="$(find axebot_description)/sensor/camera.urdf.xacro" />
+    <xacro:include filename="$(find axebot_description)/sensor/camera_gz_plugin.urdf.xacro" /> -->
+
+</robot>

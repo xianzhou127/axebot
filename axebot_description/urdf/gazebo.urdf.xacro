@@ -28,16 +28,32 @@
         <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
             <robot_param>robot_description</robot_param>
             <robot_param_node>robot_state_publisher</robot_param_node>
+            <ros>
+                <namespace>${robot_name}</namespace>
+            </ros>            
             <parameters>$(find axebot_control)/config/omnidirectional_controller.yaml</parameters>
         </plugin>
         <plugin filename="libgazebo_ros_p3d.so" name="gazebo_ros_p3d" >
             <ros>
-                <namespace>gazebo_ground_truth</namespace>
+                <namespace>/${robot_name}</namespace>
             </ros>
-            <frame_name>world</frame_name>
+            <frame_name>odom</frame_name>
             <body_name>base_link</body_name>
             <update_rate>50.0</update_rate>
             <gaussian_noise>0.01</gaussian_noise>
+            <!-- initialize odometry for fake localization-->
+                <xyz_offset>0 0 0</xyz_offset>
+                <rpy_offset>0 0 0</rpy_offset>
         </plugin>
+        <!-- 写在.world里了 -->
+        <!-- <world name="default">
+        <plugin name="gazebo_ros_state" filename="/home/xianzhou/gazebo_ros_pkgs/gazebo_ros/build/libgazebo_ros_state.so">
+            <ros>
+                <namespace>${robot_name}</namespace>
+                <remapping>model_states:=model_states_demo</remapping>
+                <remapping>link_states:=link_states_demo</remapping>
+            </ros>
+        </plugin>
+        </world> -->
     </gazebo>
 </robot>
