@@ -1,0 +1,11 @@
+# 由于使用的share里的yaml而非当前目录，所以每次修改后需要先colcon build
+# number of robots
+number_of_bots: 1
+
+# world selection：
+# easy_world
+# hard_world
+world_selection: easy_world
+
+# 设置环境变量以使用模拟时间
+use_sim_time: True
