@@ -1,4 +1,6 @@
-controller_manager:
+# 为节点传递参数
+# 这里是和gazebo_ros2_controller相关，那里设置了ns，这里就要加上ns
+/axebot_0/controller_manager:
   ros__parameters:
     update_rate: 20  # Hz
     use_sim_time: true
@@ -9,7 +11,44 @@ controller_manager:
     omnidirectional_controller:
       type: omnidirectional_controllers/OmnidirectionalController
 
-omnidirectional_controller:
+/axebot_0/omnidirectional_controller:
+  ros__parameters:
+    wheel_names: 
+      - wheel1_joint
+      - wheel2_joint
+      - wheel3_joint
+
+    robot_radius: 0.1
+    wheel_radius: 0.053112205
+    gamma: 30.0 # angle between body fixed y axis and the normal of wheel3
+
+    publish_rate: 50.0
+    odom_frame_id: odom
+    base_frame_id: axebot_0/base_link
+    pose_covariance_diagonal : [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    odom_numeric_integration_method: runge_kutta2
+
+    open_loop: false
+    enable_odom_tf: true
+
+    cmd_vel_timeout: 0.5
+    use_stamped_vel: false
+
+# 为节点传递参数
+# 这里是和gazebo_ros2_controller相关，那里设置了ns，这里就要加上ns
+/axebot_1/controller_manager:
+  ros__parameters:
+    update_rate: 20  # Hz
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    omnidirectional_controller:
+      type: omnidirectional_controllers/OmnidirectionalController
+
+/axebot_1/omnidirectional_controller:
   ros__parameters:
     wheel_names: 
       - wheel1_joint
@@ -32,3 +71,78 @@ omnidirectional_controller:
 
     cmd_vel_timeout: 0.5
     use_stamped_vel: false
+
+# 为节点传递参数
+# 这里是和gazebo_ros2_controller相关，那里设置了ns，这里就要加上ns
+/axebot_2/controller_manager:
+  ros__parameters:
+    update_rate: 20  # Hz
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    omnidirectional_controller:
+      type: omnidirectional_controllers/OmnidirectionalController
+
+/axebot_2/omnidirectional_controller:
+  ros__parameters:
+    wheel_names: 
+      - wheel1_joint
+      - wheel2_joint
+      - wheel3_joint
+
+    robot_radius: 0.1
+    wheel_radius: 0.053112205
+    gamma: 30.0 # angle between body fixed y axis and the normal of wheel3
+
+    publish_rate: 50.0
+    odom_frame_id: odom
+    base_frame_id: base_link
+    pose_covariance_diagonal : [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    odom_numeric_integration_method: runge_kutta2
+
+    open_loop: false
+    enable_odom_tf: true
+
+    cmd_vel_timeout: 0.5
+    use_stamped_vel: false
+
+# 为节点传递参数
+# 这里是和gazebo_ros2_controller相关，那里设置了ns，这里就要加上ns
+/axebot_3/controller_manager:
+  ros__parameters:
+    update_rate: 20  # Hz
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    omnidirectional_controller:
+      type: omnidirectional_controllers/OmnidirectionalController
+
+/axebot_3/omnidirectional_controller:
+  ros__parameters:
+    wheel_names: 
+      - wheel1_joint
+      - wheel2_joint
+      - wheel3_joint
+
+    robot_radius: 0.1
+    wheel_radius: 0.053112205
+    gamma: 30.0 # angle between body fixed y axis and the normal of wheel3
+
+    publish_rate: 50.0
+    odom_frame_id: odom
+    base_frame_id: base_link
+    pose_covariance_diagonal : [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    twist_covariance_diagonal: [0.001, 0.001, 0.001, 0.001, 0.001, 0.01]
+    odom_numeric_integration_method: runge_kutta2
+
+    open_loop: false
+    enable_odom_tf: true
+
+    cmd_vel_timeout: 0.5
+    use_stamped_vel: false
+

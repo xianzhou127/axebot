@@ -46,7 +46,7 @@ GoToGoal::GoToGoal()
   goal_.setZero();
 
   odom_subscription_ = this->create_subscription<nav_msgs::msg::Odometry>(
-    "/gazebo_ground_truth/odom", 1, std::bind(&GoToGoal::readOdometryCallback, this, _1));
+    "/axebot_0/odom", 1, std::bind(&GoToGoal::readOdometryCallback, this, _1));
 
   goal_subscription_ = this->create_subscription<geometry_msgs::msg::Vector3>(
     "~/goal", 1, std::bind(&GoToGoal::readGoalPointCallback, this, _1));
